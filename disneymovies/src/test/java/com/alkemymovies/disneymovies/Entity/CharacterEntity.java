@@ -1,12 +1,13 @@
 package com.alkemymovies.disneymovies.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "character")
+@Table(name = "characters")
 @Getter
 @Setter
 public class CharacterEntity {
@@ -19,8 +20,7 @@ public class CharacterEntity {
     private Long age;
     private Double weight;
     private String story;
-    @OneToMany
-    @Column(name = "associated_movie") //en la bdd las palabras se separan con _
-    private List<MovieEntity> associatedMovie;
+    @ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
+    private List<MovieEntity> movies = new ArrayList();
 
 }

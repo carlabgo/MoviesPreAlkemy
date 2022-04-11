@@ -1,6 +1,8 @@
 package com.alkemymovies.disneymovies.Entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,10 +21,26 @@ public class MovieEntity {
     private String title;
     @Column(name = "creation_date")
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    private LocalDate creationDate; //VER
-    private Long rating; //del 1 al 5
-    @ManyToOne
+    private LocalDate creationDate;
+    private Long rating;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private GenreEntity genre;
-    //@Column(name = "personajes_asociados")
-    //private List<PersonajeEntity> personajesAsociados
+
+    @Column(name = "genre_id", nullable = false)
+    private Long genreId;
+
+    @ManyToMany(
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            })
+    @JoinTable(
+            name = "characters_movie",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "characters_id")
+    )
+
+    private List<CharacterEntity> characters = new ArrayList();
+
 }

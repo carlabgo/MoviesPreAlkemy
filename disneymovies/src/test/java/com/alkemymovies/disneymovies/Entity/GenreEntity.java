@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.alkemymovies.disneymovies.Entity;
 
 import javax.persistence.*;
@@ -21,6 +16,5 @@ public class GenreEntity {
     private Long id;
     private String name;
     private String image;
-    //@Column(name = "pelicula_asociada")
-    //private List<PeliculaEntity> peliculasAsociadas;
+
 }
