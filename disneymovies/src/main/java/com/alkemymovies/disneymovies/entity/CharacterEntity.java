@@ -1,4 +1,4 @@
-package com.alkemymovies.disneymovies.Entity;
+package com.alkemymovies.disneymovies.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class CharacterEntity {
     private Long age;
     private Double weight;
     private String story;
-    @ManyToMany(mappedBy = "characters", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "characters")
     private List<MovieEntity> movies = new ArrayList();
 
 }

@@ -1,4 +1,4 @@
-package com.alkemymovies.disneymovies.Entity;
+package com.alkemymovies.disneymovies.entity;
 
 import javax.persistence.*;
 import javax.persistence.Table;
