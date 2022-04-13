@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.alkemymovies</groupId>
-	<artifactId>disneymovies</artifactId>
+	<artifactId>movies</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>disneymovies</name>
+	<name>movies</name>
 	<description>Api to browse movies and characters</description>
 	<properties>
 		<java.version>1.8</java.version>

@@ -1,8 +1,8 @@
-package com.alkemymovies.disneymovies.Entity;
+package com.alkemymovies.disneymovies.entity;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +23,7 @@ public class MovieEntity {
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate creationDate;
     private Long rating;
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "genre_id", insertable = false, updatable = false)
     private GenreEntity genre;
 
@@ -41,6 +41,6 @@ public class MovieEntity {
             inverseJoinColumns = @JoinColumn(name = "characters_id")
     )
 
-    private List<CharacterEntity> characters = new ArrayList();
+    private Set<CharacterEntity> characters = new HashSet();
 
 }
